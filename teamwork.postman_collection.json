@@ -1,0 +1,7701 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Teamwork.com API",
+		"_postman_id": "9d974cc1-a7fb-c822-d022-d03dd1c0704f",
+		"description": "Teamwork.com Projects API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "account.json",
+			"description": "Folder for account.json",
+			"item": [
+				{
+					"name": "Get Account Details",
+					"request": {
+						"url": "{{TeamworkHost}}/account.json",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Lists the latest activity across all projects ordered chronologically\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "activity",
+			"description": "Folder for activity",
+			"item": [
+				{
+					"name": "Delete an activity entry",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/activity/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"activity",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Deletes the given activity log entry referenced by {id}.   \n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "authenticate.json",
+			"description": "Folder for authenticate.json",
+			"item": [
+				{
+					"name": "The 'Authenticate' Call",
+					"request": {
+						"url": "{{TeamworkHost}}/authenticate.json",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Lists the latest activity list new tasks etc. for a given project.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "boards",
+			"description": "Folder for boards",
+			"item": [
+				{
+					"name": "Delete a Column",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/boards/columns/:column_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"boards",
+								"columns",
+								":column_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{column_id}}",
+									"id": "column_id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Remove a Column from your boards view\n"
+					},
+					"response": []
+				},
+				{
+					"name": "List Cards in a Column",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/boards/columns/:column_id/cards.json?page={{page}}&pageSize={{pageSize}}&showDeleted={{showDeleted}}&searchTerm={{searchTerm}}&responsible-party-ids={{responsible-party-ids}}&deletedAfterDate={{deletedAfterDate}}&updatedAfterDate={{updatedAfterDate}}",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"boards",
+								"columns",
+								":column_id",
+								"cards.json"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "{{page}}"
+								},
+								{
+									"key": "pageSize",
+									"value": "{{pageSize}}"
+								},
+								{
+									"key": "showDeleted",
+									"value": "{{showDeleted}}"
+								},
+								{
+									"key": "searchTerm",
+									"value": "{{searchTerm}}"
+								},
+								{
+									"key": "responsible-party-ids",
+									"value": "{{responsible-party-ids}}"
+								},
+								{
+									"key": "deletedAfterDate",
+									"value": "{{deletedAfterDate}}"
+								},
+								{
+									"key": "updatedAfterDate",
+									"value": "{{updatedAfterDate}}"
+								}
+							],
+							"variable": [
+								{
+									"value": "{{column_id}}",
+									"id": "column_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "List the existing Cards inside a Column\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a Task from the Backlog to a Column",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/boards/columns/:column_id/cards.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"boards",
+								"columns",
+								":column_id",
+								"cards.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{column_id}}",
+									"id": "column_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Add a task from your list of Tasks in to a Column\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Move a Card",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/boards/columns/cards/:card_id/move.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"boards",
+								"columns",
+								"cards",
+								":card_id",
+								"move.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{card_id}}",
+									"id": "card_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Move a Card from one Column to another\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit a Card",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/boards/columns/cards/:card_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"boards",
+								"columns",
+								"cards",
+								":card_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{card_id}}",
+									"id": "card_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Edit the details of a Card\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove a Card",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/boards/columns/cards/:card_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"boards",
+								"columns",
+								"cards",
+								":card_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{card_id}}",
+									"id": "card_id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Remove a Card from a Column (that task isn't deleted from the Tasklist)\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "calendarevents",
+			"description": "Folder for calendarevents",
+			"item": [
+				{
+					"name": "Get an Event",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/calendarevents/:event_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"calendarevents",
+								":event_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{event_id}}",
+									"id": "event_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Returns details about 1 specific event.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit an event",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/calendarevents/:event_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"calendarevents",
+								":event_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{event_id}}",
+									"id": "event_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Edit a calendar event.\n\n        Notes\n        \"start\" and \"end\" are in the format YYYY-MM-DDTHH:MM:SS (e.g: 2015-06-09T14:00:00 - always 24 hr)\n        \"start\" and \"end\" should be sent in the current users timezone \n        \"privacy\" - default is \"company\"\n        \"company\"\n        \"personal\"\n        \"project\" - If passing \"project\" you need to send \"project-id\" along with \"type\"\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Create an event",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/calendarevents/:event_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"calendarevents",
+								":event_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{event_id}}",
+									"id": "event_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "POST/calendarevents.json\n        Create a calendar event.\n\n        Notes\n        \"start\" and \"end\" are in the format YYYY-MM-DDTHH:MM:SS (e.g: 2015-06-09T14:00:00 - always 24 hr)\n        \"start\" and \"end\" should be sent in the current users timezone \n        \"privacy\" - default is \"company\"\n        \"company\"\n        \"personal\"\n        \"project\" - If passing \"project\" you need to send \"project-id\" along with \"type\"\n        \n        \n        Notes - recurring events can be set using defining frequency\n        'frequency' can be one of the following: weekly, weekdays, monthly, yearly, every2weeks, every3weeks, every4weeks, every2months, every3months, every4months, every6months\n        \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete event",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/calendarevents/:event_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"calendarevents",
+								":event_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{event_id}}",
+									"id": "event_id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Deletes the calendar event.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "calendarevents.json",
+			"description": "Folder for calendarevents.json",
+			"item": [
+				{
+					"name": "Get Events",
+					"request": {
+						"url": "{{TeamworkHost}}/calendarevents.json?showDeleted={{showDeleted}}&updatedAfterDate={{updatedAfterDate}}&eventTypeId={{eventTypeId}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This call will return all calendar events that the current user can see in the provided date range.\n\n        Optional parameters\n        showDeleted=true - Whether to include deleted events\n        updatedAfterDate=YYYYMMDDHHMMSS - Only return events updated after a certain datetime\n        eventTypeId - Only return events with a given eventTypeId (Numeric only - default 0)\n\n        Pagination:\n        By default we'll send back 250 records per page. Inspect the Response Headers for the following values:\n        X-Page (The current page being returned)\n        X-Pages (The total number of pages available)\n        X-Records (The total number of items available\n        You can request a specific page by calling the same API call and adding the parameter &page=n where n is the page you want. e.g: &page=2 for page 2, &page=5 for page 5.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "calendareventtypes.json",
+			"description": "Folder for calendareventtypes.json",
+			"item": [
+				{
+					"name": "Get event types",
+					"request": {
+						"url": "{{TeamworkHost}}/calendareventtypes.json",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Returns details about event types.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comments",
+			"description": "Folder for comments",
+			"item": [
+				{
+					"name": "Retrieving a Specific Comment",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/comments/:comment_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"comments",
+								":comment_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{comment_id}}",
+									"id": "comment_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This will get a comment based on the comment's ID\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Updating a comment",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/comments/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"comments",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Update a specific comment. This can be used to edit the content of an existing comment.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Destroying a comment",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/comments/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"comments",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Fairly self explanatory, deletes the comment from the given ID.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Mark a comment as read",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/comments/:id/markread.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"comments",
+								":id",
+								"markread.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Marks a particular comment as read from the point of view of the authenticated user.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "companies",
+			"description": "Folder for companies",
+			"item": [
+				{
+					"name": "Retrieve a Single Company",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/companies/:company_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"companies",
+								":company_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{company_id}}",
+									"id": "company_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Uses the ID specified to return a single company\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Company",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/companies/:company_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"companies",
+								":company_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{company_id}}",
+									"id": "company_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Modifies the company data - name, address, phone number etc. All fields are optional. For country codes, see the Country Codes Reference.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Company",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/companies/:company_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"companies",
+								":company_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{company_id}}",
+									"id": "company_id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This call will delete the company.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get People (within a Company)",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/companies/:company_id/people.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"companies",
+								":company_id",
+								"people.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{company_id}}",
+									"id": "company_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Retreives the details for all the people from the submitted company (excluding those you don't have permission to see)\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve projects assigned to a specific company",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/companies/:company_id/projects.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"companies",
+								":company_id",
+								"projects.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{company_id}}",
+									"id": "company_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This will retrieve all of projects assigned to a particular company\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "companies.json",
+			"description": "Folder for companies.json",
+			"item": [
+				{
+					"name": "Retrieve Companies",
+					"request": {
+						"url": "{{TeamworkHost}}/companies.json?page={{page}}&pageSize={{pageSize}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "The requesting user is returned a list of companies available to them.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Company",
+					"request": {
+						"url": "{{TeamworkHost}}/companies.json",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This call will create a company entry. The Id of the new company is returned in companyId. You can just post the name if you wish, the rest of the fields are optional.\n\n        For country codes, see the Country Codes Reference.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "completedtasks.json",
+			"description": "Folder for completedtasks.json",
+			"item": [
+				{
+					"name": "Completed tasks",
+					"request": {
+						"url": "{{TeamworkHost}}/completedtasks.json",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Retrieve completed Tasks in the last 1 month. You can use the statedate and enddate to go further back in time.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "currencycodes.json",
+			"description": "Folder for currencycodes.json",
+			"item": [
+				{
+					"name": "Get a list of valid currency codes",
+					"request": {
+						"url": "{{TeamworkHost}}/currencycodes.json",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Get a list of valid currency codes\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "expenses",
+			"description": "Folder for expenses",
+			"item": [
+				{
+					"name": "Get a single expense",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/expenses/:expense_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"expenses",
+								":expense_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{expense_id}}",
+									"id": "expense_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Get a single expense\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a single expense",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/expenses/:expense_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"expenses",
+								":expense_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{expense_id}}",
+									"id": "expense_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Update a single expense\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a single expense",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/expenses/:expense_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"expenses",
+								":expense_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{expense_id}}",
+									"id": "expense_id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Delete a single expense\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "expenses.json",
+			"description": "Folder for expenses.json",
+			"item": [
+				{
+					"name": "Get all expenses across your projects",
+					"request": {
+						"url": "{{TeamworkHost}}/expenses.json",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Get all expenses across your projects\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new expense in a project",
+					"request": {
+						"url": "{{TeamworkHost}}/expenses.json",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Create a new expense in a project\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "fileCategories",
+			"description": "Folder for fileCategories",
+			"item": [
+				{
+					"name": "Retrieve a Single Category",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/fileCategories/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"fileCategories",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Will return a category on its own; this is identified by its integer ID.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Updating a Category",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/fileCategories/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"fileCategories",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Using the integer ID given, it will update an already existing category.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Destroying a Category",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/fileCategories/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"fileCategories",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Again using the specified integer ID, this will delete the appropriate category. However, categories can only be deleted when they contain no elements..\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "files",
+			"description": "Folder for files",
+			"item": [
+				{
+					"name": "Get a Single File",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/files/:file_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"files",
+								":file_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{file_id}}",
+									"id": "file_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This returns all details about an individual file. Crucially - this call also returns the download URL which is valid only for an hour.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new File Version to a File",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/files/:file_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"files",
+								":file_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{file_id}}",
+									"id": "file_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This call adds a new file version to an existing file.\n\n        The file version file must have been uploaded already and you must have the pendingFileRef handle - see uploading files\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a File from a Project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/files/:file_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"files",
+								":file_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{file_id}}",
+									"id": "file_id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This call deletes a file from a project.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a short URL for sharing a file",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/files/:file_id/sharedlink.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"files",
+								":file_id",
+								"sharedlink.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{file_id}}",
+									"id": "file_id"
+								},
+								{
+									"value": "{{version}}",
+									"id": "version"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This call will provide a short link to a file to make it easier to share, in the format of http://twk.pm/xxxxxx\n        If you have multiple versions of a file, you can request a short link to other versions by appending 'version'\n\n        'version' is optional and is set to 1 by default.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Copy a file that already exists in one project in to another project.",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/files/:file_id/copy.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"files",
+								":file_id",
+								"copy.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{file_id}}",
+									"id": "file_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This will allow you to COPY a file that already exists in one project in to another project.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Move a file that already exists in one project in to another project.",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/files/:file_id/move.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"files",
+								":file_id",
+								"move.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{file_id}}",
+									"id": "file_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This will allow you to MOVE a file that already exists in one project in to another project.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "invoices",
+			"description": "Folder for invoices",
+			"item": [
+				{
+					"name": "Get a single invoice",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/invoices/:invoice_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"invoices",
+								":invoice_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{invoice_id}}",
+									"id": "invoice_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Get a single invoice\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a specific invoice",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/invoices/:invoice_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"invoices",
+								":invoice_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{invoice_id}}",
+									"id": "invoice_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Update a specific invoice\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Mark a specific invoice as complete",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/invoices/:invoice_id/complete.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"invoices",
+								":invoice_id",
+								"complete.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{invoice_id}}",
+									"id": "invoice_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Mark a specific invoice as complete\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Mark a specific invoice as not complete",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/invoices/:invoice_id/uncomplete.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"invoices",
+								":invoice_id",
+								"uncomplete.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{invoice_id}}",
+									"id": "invoice_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Mark a specific invoice as not complete\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Add an unbilled expense to an Invoice",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/invoices/:invoice_id/lineitems.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"invoices",
+								":invoice_id",
+								"lineitems.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{invoice_id}}",
+									"id": "invoice_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Add an unbilled expense to an Invoice\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "invoices.json",
+			"description": "Folder for invoices.json",
+			"item": [
+				{
+					"name": "Get all invoices across your projects",
+					"request": {
+						"url": "{{TeamworkHost}}/invoices.json?maxItems={{maxItems}}&projectStatus={{projectStatus}}&page={{page}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Get all invoices across your projects\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new invoice in a project",
+					"request": {
+						"url": "{{TeamworkHost}}/invoices.json",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Create a new invoice in a project\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "latestActivity.json",
+			"description": "Folder for latestActivity.json",
+			"item": [
+				{
+					"name": "Latest Activity across all projects",
+					"request": {
+						"url": "{{TeamworkHost}}/latestActivity.json?maxItems={{maxItems}}&onlyStarred ={{onlyStarred }}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Lists the latest activity across all projects ordered chronologically\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "linkCategories",
+			"description": "Folder for linkCategories",
+			"item": [
+				{
+					"name": "Retrieve a single category",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/linkCategories/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"linkCategories",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Will return a category on its own; this is identified by its integer ID.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Updating a category",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/linkCategories/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"linkCategories",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Using the integer ID given, it will update an already existing category.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Destroying a Category",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/linkCategories/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"linkCategories",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Again using the specified integer ID, this will delete the appropriate category. However, categories can only be deleted when they contain no elements.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "links",
+			"description": "Folder for links",
+			"item": [
+				{
+					"name": "Get a Single Link",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/links/:link_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"links",
+								":link_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{link_id}}",
+									"id": "link_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This returns all details about an individual link. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Single Link",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/links/:link_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"links",
+								":link_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{link_id}}",
+									"id": "link_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This command will update a single link.\ncode must be valid Embed Code, IFrame Code or a URL\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Single Link",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/links/:link_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"links",
+								":link_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{link_id}}",
+									"id": "link_id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Deletes the link specified by link_id.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "links.json",
+			"description": "Folder for links.json",
+			"item": [
+				{
+					"name": "List All Links",
+					"request": {
+						"url": "{{TeamworkHost}}/links.json",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Lists all links on projects that the authenticated user is associated with. \n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "me",
+			"description": "Folder for me",
+			"item": [
+				{
+					"name": "Retrieve my Status",
+					"request": {
+						"url": "{{TeamworkHost}}/me/status.json",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Returns the latest status post for a user\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Create My Status",
+					"request": {
+						"url": "{{TeamworkHost}}/me/status.json",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This call will create a status entry. The ID of the new status is returned in header id. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Status Me",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/me/status/:status_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"me",
+								"status",
+								":status_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{status_id}}",
+									"id": "status_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Modifies a status post.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete My Status",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/me/status/:status_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"me",
+								"status",
+								":status_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{status_id}}",
+									"id": "status_id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This call will delete a particular status message.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "me.json",
+			"description": "Folder for me.json",
+			"item": [
+				{
+					"name": "Get Current User Details",
+					"request": {
+						"url": "{{TeamworkHost}}/me.json",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Returns the details for the account you're currently logged in with\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "messageCategories",
+			"description": "Folder for messageCategories",
+			"item": [
+				{
+					"name": "Retrieve a Single Category",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/messageCategories/:category_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"messageCategories",
+								":category_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{category_id}}",
+									"id": "category_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Will return a category on its own; this is identified by its integer ID.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Updating a Category",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/messageCategories/:category_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"messageCategories",
+								":category_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{category_id}}",
+									"id": "category_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Using the integer ID given, it will update an already existing category.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Destroying a Category",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/messageCategories/:category_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"messageCategories",
+								":category_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{category_id}}",
+									"id": "category_id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Again using the specified integer ID, this will delete the appropriate category. However, categories can only be deleted when they contain no elements..\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "messageReplies",
+			"description": "Folder for messageReplies",
+			"item": [
+				{
+					"name": "Retrieve a Single Message Reply",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/messageReplies/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"messageReplies",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Uses the given messsage ID to retrieve a message\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Message Reply",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/messageReplies/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"messageReplies",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Updates an existing message body only.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Destroy Message Reply",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/messageReplies/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"messageReplies",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Deletes the message including all comments etc\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Mark Message Reply Read",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/messageReplies/:id/markread.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"messageReplies",
+								":id",
+								"markread.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Marks a specific message reply as read by the current authenticated user\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "messages",
+			"description": "Folder for messages",
+			"item": [
+				{
+					"name": "Archive a message",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/messages/:id/archive.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"messages",
+								":id",
+								"archive.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Archives the message including all replies etc\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Un-archive a message",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/messages/:id/unarchive.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"messages",
+								":id",
+								"unarchive.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Restores the message from the Archive including all replies etc\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Mark Message Read",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/messages/:id/markread.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"messages",
+								":id",
+								"markread.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Marks a specific message as read by the current authenticated user\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Message Reply",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/messages/:message_id/messageReplies.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"messages",
+								":message_id",
+								"messageReplies.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{message_id}}",
+									"id": "message_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This will create a new message. Also, you have the option of sending a notification to a list of people you select.people.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Replies to a Message",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/messages/:id/replies.json?page={{page}}&pageSize={{pageSize}}",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"messages",
+								":id",
+								"replies.json"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "{{page}}"
+								},
+								{
+									"key": "pageSize",
+									"value": "{{pageSize}}"
+								}
+							],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Uses the given messsage ID to retrieve a all replies to a message specified in the url.\n        By default 20 records are returned at a time. You can pass \"\"page\"\" and \"\"pageSize\"\" to change this:\n        eg. GET /messages/54/replies.json?page=2&pageSize=50.\n\n        The following headers are returned:\n        X-Records - The total number of replies\n        X-Pages - The total number of pages\n        X-Page - The page you requested\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "milestones",
+			"description": "Folder for milestones",
+			"item": [
+				{
+					"name": "Get a Single Milestone",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/milestones/:milestone_id.json?getProgress={{getProgress}}&showTaskLists={{showTaskLists}}&showTasks={{showTasks}}",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"milestones",
+								":milestone_id.json"
+							],
+							"query": [
+								{
+									"key": "getProgress",
+									"value": "{{getProgress}}"
+								},
+								{
+									"key": "showTaskLists",
+									"value": "{{showTaskLists}}"
+								},
+								{
+									"key": "showTasks",
+									"value": "{{showTasks}}"
+								}
+							],
+							"variable": [
+								{
+									"value": "{{milestone_id}}",
+									"id": "milestone_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This returns all details about an individual milestone.\n\n        Additional Parameters\n        Pass getProgress=true to return a field percentageComplete\n        Pass &showTaskLists=true to include a list of task lists associated with this milestone\n        If you pass &showTaskLists=true you can also pass &showTasks=true to include a list of tasks in each list\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/milestones/:milestone_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"milestones",
+								":milestone_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{milestone_id}}",
+									"id": "milestone_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Modifies a single milestone. You can use this to shift the deadline of a single milestone, and optionally shift the deadlines of subsequent milestones as well.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/milestones/:milestone_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"milestones",
+								":milestone_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{milestone_id}}",
+									"id": "milestone_id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Deletes the milestone.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Complete",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/milestones/:id/complete.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"milestones",
+								":id",
+								"complete.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Marks the specified milestone as complete. Returns Status 200 OK.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Uncomplete",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/milestones/:id/uncomplete.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"milestones",
+								":id",
+								"uncomplete.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Marks the specified milestone as uncomplete. Returns Status 200 OK.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "milestones.json",
+			"description": "Folder for milestones.json",
+			"item": [
+				{
+					"name": "List All Milestones",
+					"request": {
+						"url": "{{TeamworkHost}}/milestones.json?page={{page}}&pageSize={{pageSize}}&getProgress={{getProgress}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Lists all milestones on projects that the authenticated user is associated with. You can set the \"find\" option to return only those milestones that are incomplete, completed, upcoming or late. By default all milestones will be returned.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "notebookCategories",
+			"description": "Folder for notebookCategories",
+			"item": [
+				{
+					"name": "Retrieve a Single Category",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/notebookCategories/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"notebookCategories",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Will return a category on its own; this is identified by its integer ID.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Updating a Category",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/notebookCategories/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"notebookCategories",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Using the integer ID given, it will update an already existing category.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Destroying a Category",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/notebookCategories/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"notebookCategories",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Again using the specified integer ID, this will delete the appropriate category. However, categories can only be deleted when they contain no elements.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "List Notebooks in a specific category",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/notebookCategories/:id/notebooks.json?includeContent={{includeContent}}",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"notebookCategories",
+								":id",
+								"notebooks.json"
+							],
+							"query": [
+								{
+									"key": "includeContent",
+									"value": "{{includeContent}}"
+								}
+							],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This lets you query the list of notebooks for a specific category. \n        By default, the actual notebook HTML content is not returned.\n        You can pass includeContent=true to return the notebook HTML content with the notebook data\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "notebooks",
+			"description": "Folder for notebooks",
+			"item": [
+				{
+					"name": "Get a Single Notebook",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/notebooks/:notebook_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"notebooks",
+								":notebook_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{notebook_id}}",
+									"id": "notebook_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This returns all details about an individual notebook. HTML content is always returned on this call.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Single Notebook",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/notebooks/:notebook_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"notebooks",
+								":notebook_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{notebook_id}}",
+									"id": "notebook_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This command will update a single notebook.\n        Content must be valid XHTML\n\n        You not not need to include <html>, <head> or <body> tags\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Single Notebook",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/notebooks/:notebook_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"notebooks",
+								":notebook_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{notebook_id}}",
+									"id": "notebook_id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Deletes the notebook and all versions.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Lock a Single Notebook For Editing",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/notebooks/:notebook_id/lock.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"notebooks",
+								":notebook_id",
+								"lock.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{notebook_id}}",
+									"id": "notebook_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Locks the notebook and all versions for editing.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Unlock a Single Notebook",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/notebooks/:notebook_id/unlock.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"notebooks",
+								":notebook_id",
+								"unlock.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{notebook_id}}",
+									"id": "notebook_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Unlocks a locked notebook so it can be edited again.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Copy a Notebook to another Project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/notebooks/:notebook_id/copy.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"notebooks",
+								":notebook_id",
+								"copy.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{notebook_id}}",
+									"id": "notebook_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Copies the notebook to a chosen Project\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Move a Notebook to another Project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/notebooks/:notebook_id/move.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"notebooks",
+								":notebook_id",
+								"move.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{notebook_id}}",
+									"id": "notebook_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Moves the notebook to a chosen Project and removed it from its current Project\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "notebooks.json",
+			"description": "Folder for notebooks.json",
+			"item": [
+				{
+					"name": "List All Notebooks",
+					"request": {
+						"url": "{{TeamworkHost}}/notebooks.json",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Lists all notebooks on projects that the authenticated user is associated with. By default, the actual notebook HTML content is not returned. \n\n        You can pass includeContent=true to return the notebook HTML content with the notebook data\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "pendingfiles.json",
+			"description": "Folder for pendingfiles.json",
+			"item": [
+				{
+					"name": "Files Uploading",
+					"request": {
+						"url": "{{TeamworkHost}}/pendingfiles.json",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "To attach files to a project you first need to upload the file and receive a pendingFileRef. You can then use the pendingFileRef to attach the file to a message or directly to the files page of the project.\n\n        Step 1. Upload the file\n        Send your file to POST /pendingfiles.json using the FORM field file.\n        You will still need to authenticate yourself by passing your API token.\n        If the upload is successful, you will get back something like:\n\n        Step 2: Use the reference handle in your API calls\n        Simply use the file handle in the ref field when making the add file or add message API Calls.\n        The file handle looks something like tf_F61F7DF3F5B4C5B6 and is sent to the messages or files API calls as pendingFileRef.\n\n        Notes\n        As soon as you link the file to the project by making an API call, then Pending-File Handle is no longer valid. \n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "people",
+			"description": "Folder for people",
+			"item": [
+				{
+					"name": "Edit user",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/people/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"people",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Updates a user account\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/people/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"people",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Deletes the given user account. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a Specific Person",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/people/:person_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"people",
+								":person_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{person_id}}",
+									"id": "person_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Retrieves the user details for the ID submitted\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Unassign a user from all Tasks",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/people/:person_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"people",
+								":person_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{person_id}}",
+									"id": "person_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This will remove the user from any Tasks they have been assigned to.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a API Keys for all people on account",
+					"request": {
+						"url": "{{TeamworkHost}}/people/APIKeys.json",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Retrieves the API keys for all people on your Teamwork account.\n\nNote: This can only be called by the user authenticated as the Site Administrator\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Status for Others",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/people/:person_id/status.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"people",
+								":person_id",
+								"status.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{person_id}}",
+									"id": "person_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This call will create a status entry. The ID of the new status is returned in header id. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Status by Status ID",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/people/status/:status_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"people",
+								"status",
+								":status_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{status_id}}",
+									"id": "status_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Modifies a status post.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Status by Status Id",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/people/status/:status_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"people",
+								"status",
+								":status_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{status_id}}",
+									"id": "status_id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This call will delete a particular status message.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Status By person id and status id",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/people/:person_id/status/:status_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"people",
+								":person_id",
+								"status",
+								":status_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{person_id}}",
+									"id": "person_id"
+								},
+								{
+									"value": "{{status_id}}",
+									"id": "status_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Modifies a status post.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Status by Person and Status Id",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/people/:person_id/status/:status_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"people",
+								":person_id",
+								"status",
+								":status_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{person_id}}",
+									"id": "person_id"
+								},
+								{
+									"value": "{{status_id}}",
+									"id": "status_id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This call will delete a particular status message.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a Persons Status",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/people/:user_id/",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"people",
+								":user_id",
+								""
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{user_id}}",
+									"id": "user_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Returns the latest status post for a user\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Everybodys Status",
+					"request": {
+						"url": "{{TeamworkHost}}/people/status.json",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "All of the latest status posts are returned for all users in the parent company.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "people.json",
+			"description": "Folder for people.json",
+			"item": [
+				{
+					"name": "Get people",
+					"request": {
+						"url": "{{TeamworkHost}}/people.json",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "All people visible to the user will be returned, including the user themselves\nBy default 200 records are returned at a time.\nYou can pass page and pageSize to change this: eg. GET /people.json?page=2&pageSize=50\n\nThe following headers are returned:\nX-Records - The total number of people\nX-Pages - The total number of pages\nX-Page - The page you requested\n\nAdditional Optional Parameters\nemailaddress : string: Pass this parameter to check if a user exists by email address\nfullprofile : boolean: Pass this parameter to return private notes for users\nreturnProjectIds: boolean: Pass this parameter to return the ProjectIds the user is a member of\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new user",
+					"request": {
+						"url": "{{TeamworkHost}}/people.json",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Creates a new user account\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "posts",
+			"description": "Folder for posts",
+			"item": [
+				{
+					"name": "Retrieve a Single Message",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/posts/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"posts",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Uses the given messsage ID to retrieve a message\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update message",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/posts/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"posts",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Updates an existing message, optionally sending notifications to a selected list of people.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Destroy message",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/posts/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"posts",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Deletes the message including all comments etc\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "projectCategories",
+			"description": "Folder for projectCategories",
+			"item": [
+				{
+					"name": "Retrieve a single Project Category",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projectCategories/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projectCategories",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Will return a category on its own; this is identified by its integer ID.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Updating a Project Category",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projectCategories/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projectCategories",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Using the integer ID given, it will update an already existing category.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Destroying a Project Category",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projectCategories/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projectCategories",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Again using the specified integer ID, this will delete the appropriate category. However, categories can only be deleted when they contain no elements.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "projectCategories.json",
+			"description": "Folder for projectCategories.json",
+			"item": [
+				{
+					"name": "Retrieve all Project Categories",
+					"request": {
+						"url": "{{TeamworkHost}}/projectCategories.json",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Will return all project categories\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "projectcategories.json",
+			"description": "Folder for projectcategories.json",
+			"item": [
+				{
+					"name": "Creating Project Categories",
+					"request": {
+						"url": "{{TeamworkHost}}/projectcategories.json",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "A new project category will be created\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "projects",
+			"description": "Folder for projects",
+			"item": [
+				{
+					"name": "List Latest Activity (for a project)",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/latestActivity.json?maxItems={{maxItems}}",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"latestActivity.json"
+							],
+							"query": [
+								{
+									"key": "maxItems",
+									"value": "{{maxItems}}"
+								}
+							],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Lists the latest activity list new tasks etc. for a given project.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all invoices on a single project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/invoices.json?type={{type}}&page={{page}}",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"invoices.json"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "{{type}}"
+								},
+								{
+									"key": "page",
+									"value": "{{page}}"
+								}
+							],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Get all invoices on a single project\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all expenses on a single project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/expenses.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"expenses.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Get all expenses on a single project\n"
+					},
+					"response": []
+				},
+				{
+					"name": "List Columns",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/boards/columns.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"boards",
+								"columns.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Allows you to list all existing Columns in your Boards view\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new Column",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/boards/columns.json?page={{page}}&pageSize={{pageSize}}&showDeleted={{showDeleted}}&deletedAfterDate={{deletedAfterDate}}&updatedAfterDate={{updatedAfterDate}}",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"boards",
+								"columns.json"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "{{page}}"
+								},
+								{
+									"key": "pageSize",
+									"value": "{{pageSize}}"
+								},
+								{
+									"key": "showDeleted",
+									"value": "{{showDeleted}}"
+								},
+								{
+									"key": "deletedAfterDate",
+									"value": "{{deletedAfterDate}}"
+								},
+								{
+									"key": "updatedAfterDate",
+									"value": "{{updatedAfterDate}}"
+								}
+							],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Allows you to create a new Column in your Boards view. The following colours can be used when creating Columns\n        #27AE60, #99DF72, #1ABC9C, #6866D0, #8E44AD, #0AD2F5, #3498DB, #3D82DE, #C0392B, #E74C3C, #A94136, #660A00, #F39C12, #F1C40F, #34495E, #7F8C8D, #D35400, #B49255, #D870AD, #BDC3C7, #9B59B6\n        \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieving all of a Projects Categories",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/messageCategories.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"messageCategories.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "All the message categories for your project will be returned.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Creating Categories",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/messageCategories.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"messageCategories.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "A new category will be created and attached to your specified project ID.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieving all of a Projects Categories",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/fileCategories.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"fileCategories.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "All the file categories for your project will be returned.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Creating Categories",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/fileCategories.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"fileCategories.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "A new category will be created and attached to your specified project ID.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieving all of a Projects Categories",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/notebookCategories.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"notebookCategories.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "All the notebook categories for your project will be returned.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Creating Categories",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/notebookCategories.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"notebookCategories.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "A new category will be created and attached to your specified project ID.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieving all of a projects link categories",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/linkCategories.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"linkCategories.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "All the link categories for your project will be returned.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Creating categories",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/linkCategories.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"linkCategories.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "A new category will be created and attached to your specified project ID.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieving Companies within a Project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/companies.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"companies.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "All of the companies within the specified project are returned\n"
+					},
+					"response": []
+				},
+				{
+					"name": "List Files on a Project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/files.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"files.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This lets you query the list of files for a project.\n\n        If a file is an image, there will be an additional key called thumbURL in the response with a link to the image thumbnail.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a File to a Project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/files.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"files.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This call adds a file to the project.\n\n        The file must have been uploaded already and you must have the pendingFileRef  handle - see uploading files\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Latest Messages",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/posts.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"posts.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "For the project ID supplied, will return the 25 most recent messages\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a message",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/posts.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"posts.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This will create a new message. Also, you have the option of sending a notification to a list of people you specify.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Messages by Category",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/cat/:category_id/posts.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"cat",
+								":category_id",
+								"posts.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								},
+								{
+									"value": "{{category_id}}",
+									"id": "category_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "As before, will return you the most recent 25 messages, this time limited by project and category.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get archived messages",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/posts/archive.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"posts",
+								"archive.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Rather than the full message, this returns a summary record for each message in the specified project.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get archived messages by category",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/cat/:category_id/posts/archive.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"cat",
+								":category_id",
+								"posts",
+								"archive.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								},
+								{
+									"value": "{{category_id}}",
+									"id": "category_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "As above, but returns only the posts in the given category\n"
+					},
+					"response": []
+				},
+				{
+					"name": "List Milestones on a Project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/milestones.json?getProgress={{getProgress}}",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"milestones.json"
+							],
+							"query": [
+								{
+									"key": "getProgress",
+									"value": "{{getProgress}}"
+								}
+							],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This lets you query the list of milestones for a project. You can set the \"find\" option to return only those milestones that are incomplete, completed, upcoming or late. By default all milestones will be returned.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Single Milestone",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/milestones.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"milestones.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This API call will create a single milestone.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "List Notebooks on a Project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/notebooks.json?includeContent={{includeContent}}",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"notebooks.json"
+							],
+							"query": [
+								{
+									"key": "includeContent",
+									"value": "{{includeContent}}"
+								}
+							],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This lets you query the list of notebooks for a project. \n        By default, the actual notebook HTML content is not returned.\n\n        You can pass includeContent=true to return the notebook HTML content with the notebook data\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Single Notebook",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/notebooks.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"notebooks.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This command will create a single notebook.\n        Content must be valid XHTML\n\n        You not not need to include <html>, <head> or <body> tags\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all People (within a Project)",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/people.json?page={{page}}&pageSize={{pageSize}}",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"people.json"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "{{page}}"
+								},
+								{
+									"key": "pageSize",
+									"value": "{{pageSize}}"
+								}
+							],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Retrieves all of the people in a given project\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Add/Remove multiple people to/from a project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/people.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"people.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Add or Remove multiple people to or from a project. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a users permissions on a project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/people/:user_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"people",
+								":user_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								},
+								{
+									"value": "{{user_id}}",
+									"id": "user_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Gets the details and permissions for a given user on a given project.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a users permissions on a project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/people/:user_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"people",
+								":user_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								},
+								{
+									"value": "{{user_id}}",
+									"id": "user_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Sets the permissions of a given user on a given project.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new user to a project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/people/:user_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"people",
+								":user_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								},
+								{
+									"value": "{{user_id}}",
+									"id": "user_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Add a user to a project. Default permissions setup in Teamwork will be used.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove a user from a project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/people/:user_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"people",
+								":user_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								},
+								{
+									"value": "{{user_id}}",
+									"id": "user_id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Removes a user from a project.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a Single Project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id.json?includePeople={{includePeople}}",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id.json"
+							],
+							"query": [
+								{
+									"key": "includePeople",
+									"value": "{{includePeople}}"
+								}
+							],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Returns a single project identified by its integer ID\n\nAdditional Parameters:\nYou can pass includePeople=true as an optional parameter to get an array of ID's of all people associated with the requested project included in the response under the field people\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Modifies a single project. \n\nYou can also use this call to update the logo of the project\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Strangely enough, the call will delete the project.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve your Starred Projects",
+					"request": {
+						"url": "{{TeamworkHost}}/projects/starred.json",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Surprisingly, this will retrieve all of your projects, which have been starred!\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Star a project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/star.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"star.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Adds a project to your list of favourite projects.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Unstar a project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/unstar.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"unstar.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Removes a project from your list of favourite projects.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Read project Box folder and access",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/box.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"box.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Lets you get the Box folder and Access Level on a particular project\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Set project Box folder and access",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/box.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"box.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Lets you set the Box folder and Access Level on a particular project\n\nParameters\n\nfolder-access  string  Any one of ownerCompanyAdmins, alladmins, allAdminsAndOwnerCompany, allPeopleOnProject\nenabled  boolean\nfolder-id  string A valid Box Folder Resource ID\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Read project Google Drive folder and access",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/googleDrive.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"googleDrive.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Lets you get the Google Drive folder and Access Level on a particular project\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Set project Google Drive folder and access",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/googleDrive.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"googleDrive.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Lets you set the Google Drive folder and Access Level on a particular project\n\nParameters\n\nfolder-access  string  Any one of ownerCompanyAdmins, alladmins, allAdminsAndOwnerCompany, allPeopleOnProject\nenabled  boolean\nfolder-id  string A valid Google Drive Folder Resource ID\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Project Rates",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/rates.json?page={{page}}&pageSize={{pageSize}}",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"rates.json"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "{{page}}"
+								},
+								{
+									"key": "pageSize",
+									"value": "{{pageSize}}"
+								}
+							],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Lets you see the hourly rate(s) set for People on a single Project\n\nParameters\npage integer  The page number to show\npageSize integer The number of tesults to show per page\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Set Project Rates",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/rates.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"rates.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This allows you to set Rates for people on a Project\n"
+					},
+					"response": []
+				},
+				{
+					"name": "List Roles on a Project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/roles.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"roles.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This lets you query the list of roles set on a project. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a role to a project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/roles.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"roles.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Add a role to a specific project\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Project Email Address",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/emailaddress.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"emailaddress.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This call will get the unique project email addresses for sending items to a project via a project member.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Project Email Address",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/emailaddress.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"emailaddress.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This call will update the unique project email addresses used to send items to a project via a project member.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "List Links on a Project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/links.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"links.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This lets you query the list of links for a project. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Single Link",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/links.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"links.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This command will create a single link.\ncode must be valid Embed Code, IFrame Code or a URL\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve all Risks in a Project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/risks.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"risks.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Get all Risks in a Project\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve All Time Entries for a Project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/time_entries.json?page={{page}}&fromdate={{fromdate}}&fromtime={{fromtime}}&todate={{todate}}&totime={{totime}}&sortby={{sortby}}&sortorder={{sortorder}}&userId={{userId}}&billableType={{billableType}}&invoicedType={{invoicedType}}&showDeleted={{showDeleted}}&tagIds={{tagIds}}",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"time_entries.json"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "{{page}}"
+								},
+								{
+									"key": "fromdate",
+									"value": "{{fromdate}}"
+								},
+								{
+									"key": "fromtime",
+									"value": "{{fromtime}}"
+								},
+								{
+									"key": "todate",
+									"value": "{{todate}}"
+								},
+								{
+									"key": "totime",
+									"value": "{{totime}}"
+								},
+								{
+									"key": "sortby",
+									"value": "{{sortby}}"
+								},
+								{
+									"key": "sortorder",
+									"value": "{{sortorder}}"
+								},
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "billableType",
+									"value": "{{billableType}}"
+								},
+								{
+									"key": "invoicedType",
+									"value": "{{invoicedType}}"
+								},
+								{
+									"key": "showDeleted",
+									"value": "{{showDeleted}}"
+								},
+								{
+									"key": "tagIds",
+									"value": "{{tagIds}}"
+								}
+							],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "In ascending order by date, this retrieves time entries for all projects.\nA page can contain up to 500 entries, but to select a different page of data, set the page query parameter to a value greater than zero.\nThe total number of time entries in the project is in the X-Records HTTP header. X-Pages will be set to the total number of pages, and X-Page will be set to the current page.\n\nOptional Parameters\npage  numeric - The page to start retrieving entries from ( e.g: page=1 gives records 1 - 500, page=2 gives records 501-1001 etc)\nfromdate  string (YYYYMMDD) - The start date to retrieve from\nfromtime  string (HH:MM) - The start time only if fromdate is passed\ntodate string (YYYYMMDD) - The end date to retrieve to\ntotime  string (HH:MM) - The end time only if todate is passed\nsortby  string - One of the following: date, user, task, tasklist, project, company, dateupdated (Default: date)\nsortorder: string (ASC or DESC) - The order to sort the returned data\nuserId: numeric - Return time logs for a specific user only\nbillableType  string (billable or nonbillable) - Filter the Time Entries to those that are Billable or Not Billable.\ninvoicedType string (invoiced or noninvoiced) - filter the time entries to those that have been Invoiced or not.\nprojectType  string (all, active, archived) - Filter the time entries to those in Active projects, Archived projects or All projects.\nshowDeleted string (true or false) - Filter time entries to include deleted time sheet entries or not\ntagIds numeric - Include one or more Tag IDs here to return only the time entries with those tags attached (eg &tagIds=23,445,454)\n\nNote\nThe date field returned in the response is in UTC date/time\nThe toDate, toTime, fromDate and fromTime are specified in your timezone.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Time-Entry",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/time_entries.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"time_entries.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "For the submitted project, will let you create a new time entry\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Project Times Totals",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/time/total.json?userId={{userId}}&fromdate={{fromdate}}&fromtime={{fromtime}}&todate={{todate}}&totime={{totime}}&projectType={{projectType}}",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"time",
+								"total.json"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "fromdate",
+									"value": "{{fromdate}}"
+								},
+								{
+									"key": "fromtime",
+									"value": "{{fromtime}}"
+								},
+								{
+									"key": "todate",
+									"value": "{{todate}}"
+								},
+								{
+									"key": "totime",
+									"value": "{{totime}}"
+								},
+								{
+									"key": "projectType",
+									"value": "{{projectType}}"
+								}
+							],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Project Times Totals\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Time Totals per Project",
+					"request": {
+						"url": "{{TeamworkHost}}/projects/time/total.json?fromdate={{fromdate}}&fromtime={{fromtime}}&todate={{todate}}&totime={{totime}}&projectType={{projectType}}&page={{page}}&pageSize={{pageSize}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Optional Parameters\nfromDate (string - YYYYMMDD format ) - Only show totals from a specific date\ntoDate (string - YYYYMMDD format ) - Only show totals up to a specific date\nfromTime (string - HH:MM format ) - Only show totals from a specific time in conjunction with fromDate\ntoTime (string - HH:MM format ) - Only show totals up to a specific time in conjunction with toDate\nprojectType : string (all, active, archived) - Filter the time totals to those in Active projects, Archived projects or All projects.\npage (numeric - defaults to 1) - The page number to show\npageSize (numeric - defaults to 100) - The number of results per page.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all task lists for a project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/tasklists.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"tasklists.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Retrieves all project task lists\n\nOptions:\nPassing getOverdueCount will return the number of overdue tasks overdue-count for each task list. \nPassing getCompletedCount will return the number of completed tasks completed-count for each task list.\nStatus: You can use the status option to restrict the Task Lists returned - valid values are all, active, and completed. The default is \"\"active\"\"\nPassing showMilestones=1 will add Milestone information in to the response, if a Milestone is attached to the Task List\n\nBy default we'll send back 250 task list/todo list records per page. Inspect the Response Headers for the following values:\nX-Page (The current page being returned)\nX-Pages (The total number of pages available)\nX-Records (The total number of items available\nYou can request a specific page by calling the same API call and adding the parameter &page=n where n is the page you want. e.g: &page=2 for page 2, &page=5 for page 5.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Create list",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/tasklists.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"tasklists.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Creates a new task list based on the submitted JSON or XML data. If you wish to base the new list on a task list template that you’ve created previously, you can specify the todo-list-template-id field in the data, and the new list will default to the name, description, and tasks indicated by that template.\n\nTask List Template Options\nWhen you're creating the tasklist using a todo-list-template-id you can pass the following\ntodo-list-template-id\ntodo-list-template-start-date (Blank or YYYYMMDD format e.g: 20150314)\ntodo-list-template-keep-off-weekends (Boolean: default false)\ntodo-list-template-assignments (Blank or struct)\n\nThe format of the todo-list-template-assignments struct should be the role name and the value being a comma separated list of user-ids to assign the task to. \n\nAdditonal Options\nYou can pass 'addToTop:true' to force the new item to the top of the tasklists list. The default is false which adds the item to the bottom of the list of tasklists.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Reorder lists",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/tasklists/reorder.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"tasklists",
+								"reorder.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Reorders the lists in the project according to the ordering given. Any lists that are not explicitly specified will be positioned after the lists that are specified.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all tasks on a given project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/projects/:project_id/tasks.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"projects",
+								":project_id",
+								"tasks.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{project_id}}",
+									"id": "project_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Get all tasks on a given project\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "projects.json",
+			"description": "Folder for projects.json",
+			"item": [
+				{
+					"name": "Retrieve All Projects",
+					"request": {
+						"url": "{{TeamworkHost}}/projects.json?status={{status}}&updatedAfterDate={{updatedAfterDate}}&updatedAfterTime={{updatedAfterTime}}&createdAfterDate={{createdAfterDate}}&createdAfterTime={{createdAfterTime}}&catId={{catId}}&includePeople={{includePeople}}&orderby={{orderby}}&page={{page}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Retrieves all accessible projects. Default returns your active projects. \n\nReturn projects by status\nBy default we send back only active projects. You can pass a status option to retrieve projects filtered by status (ALL, ACTIVE, ARCHIVED, CURRENT, LATE, COMPLETED)\n\nAn example\nGET /projects.json?status=ALL\nGET /projects.json?status=ARCHIVED\n\nReturn only updated projects\nYou can optionally append a date to the call to return only those projects recently updated. This is very useful if you are implementing local caching as you won't have to recheck everything therefore making your applicaton much faster.\nYou can pass in a date and/or a date with a time using the variables updatedAfterDate and updatedAfterTime.\n\nAn example\nGET /projects.json?updatedAfterDate=20100603\nGET /projects.json?updatedAfterDate=20100603&updatedAfterTime=15:21\n\nSorting results\nYou can pass orderby=name or orderby=companyName or orderby=lastActivityDate.\neg. GET /projects.json?orderby=lastActivityDate\n\nReturn only projects created after a certain point in time\nYou can optionally append a date to the call to return only those projects created after a certain point in time. You can pass in a date and/or a date with a time using the variables createdAfterDate and createdAfterTime.\n\nAn example\nGET /projects.json?createdAfterDate=20100603\nGET /projects.json?createdAfterDate=20100603&createdAfterTime=15:21\nReturn only projects in a certain category\nYou can pass a category ID so that you can return a list of Projects in a certain category only.\n\nAn example\nGET /projects.json?catId=12345\nAdditional Parameters\nYou can pass includePeople=true as an optional parameter to get an array of ID's of all people associated with each project included in the response under the field people\n\nPagination\nBy default we'll send back 500 project records per page. Inspect the Response Headers for the following values:\nX-Page (The current page being returned)\nX-Pages (The total number of pages available)\nX-Records (The total number of items available\n\nYou can request a specific page by calling the same API call and adding the parameter &page=n where n is the page you want. e.g: &page=2 for page 2, &page=5 for page 5.\nSee Projects GET in Data Reference\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Project",
+					"request": {
+						"url": "{{TeamworkHost}}/projects.json",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This call will create a single project.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "roles",
+			"description": "Folder for roles",
+			"item": [
+				{
+					"name": "Get an individual role",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/roles/:role_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"roles",
+								":role_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{role_id}}",
+									"id": "role_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Get an individual role\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a role on a project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/roles/:role_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"roles",
+								":role_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{role_id}}",
+									"id": "role_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Update a specific role\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a role",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/roles/:role_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"roles",
+								":role_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{role_id}}",
+									"id": "role_id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Delete a role\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "search.json",
+			"description": "Folder for search.json",
+			"item": [
+				{
+					"name": "Search",
+					"request": {
+						"url": "{{TeamworkHost}}/search.json?searchFor={{searchFor}}&searchTerm={{searchTerm}}&projectId={{projectId}}&sortOrder={{sortOrder}}&includArchivedProjects={{includArchivedProjects}}&includeCompletedItems={{includeCompletedItems}}&pageSize={{pageSize}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Perform a search in one of several Projects settings.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "stats.json",
+			"description": "Folder for stats.json",
+			"item": [
+				{
+					"name": "Current User Summary Stats",
+					"request": {
+						"url": "{{TeamworkHost}}/stats.json?getPermissions={{getPermissions}}&onlymyprojects={{onlymyprojects}}&onlyMyEvents={{onlyMyEvents}}&eventsInNext={{eventsInNext}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Returns summary details for the user including Tasks today/late/upcoming, Permissions, Events, Milestones, Projects\n\nAdditional Optional Parameters\ngetPermissions  boolean Return Permissons information in the response\nonlymyprojects  integer Summary of the users Projects only or all Projects\nonlyMyEvents boolean Summary of the users Events only or all Events\neventsInNext integer Number of days to look ahead for Events\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tags",
+			"description": "Folder for tags",
+			"item": [
+				{
+					"name": "Get a single tag",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tags/:tag_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tags",
+								":tag_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{tag_id}}",
+									"id": "tag_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This returns all details about an individual tag. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a single tag",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tags/:tag_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tags",
+								":tag_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{tag_id}}",
+									"id": "tag_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This command will update a single tag.\n\n        color must be valid tag color\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a single tag",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tags/:tag_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tags",
+								":tag_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{tag_id}}",
+									"id": "tag_id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Deletes the tag specified by tag_id.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tags.json",
+			"description": "Folder for tags.json",
+			"item": [
+				{
+					"name": "List All Tags",
+					"request": {
+						"url": "{{TeamworkHost}}/tags.json",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Lists all tags on your teamwork.com account \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a single tag",
+					"request": {
+						"url": "{{TeamworkHost}}/tags.json",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This command will create a single tag.\n\n        color must be valid tag color\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tasklist",
+			"description": "Folder for tasklist",
+			"item": [
+				{
+					"name": "Move a Task list to another project",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tasklist/:tasklist_id/move.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tasklist",
+								":tasklist_id",
+								"move.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{tasklist_id}}",
+									"id": "tasklist_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Move an existing Task list to another Project, based on its Project ID\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tasklists",
+			"description": "Folder for tasklists",
+			"item": [
+				{
+					"name": "Tasklist Time Totals",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tasklists/:tasklist_id/time/total.json?userId={{userId}}&fromdate={{fromdate}}&fromtime={{fromtime}}&todate={{todate}}&totime={{totime}}&projectType={{projectType}}",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tasklists",
+								":tasklist_id",
+								"time",
+								"total.json"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "fromdate",
+									"value": "{{fromdate}}"
+								},
+								{
+									"key": "fromtime",
+									"value": "{{fromtime}}"
+								},
+								{
+									"key": "todate",
+									"value": "{{todate}}"
+								},
+								{
+									"key": "totime",
+									"value": "{{totime}}"
+								},
+								{
+									"key": "projectType",
+									"value": "{{projectType}}"
+								}
+							],
+							"variable": [
+								{
+									"value": "{{tasklist_id}}",
+									"id": "tasklist_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Tasklist Time Totals\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Single task list",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tasklists/:tasklist_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tasklists",
+								":tasklist_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{tasklist_id}}",
+									"id": "tasklist_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Retrieves the task list corresponding to the submitted integer ID.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update list",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tasklists/:tasklist_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tasklists",
+								":tasklist_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{tasklist_id}}",
+									"id": "tasklist_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Updates the specified task list record with the changes indicated by the submitted data.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a task list",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tasklists/:tasklist_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tasklists",
+								":tasklist_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{tasklist_id}}",
+									"id": "tasklist_id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Destroys the given task list and all of its associated tasks\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Template Task Lists Get all template task lists",
+					"request": {
+						"url": "{{TeamworkHost}}/tasklists/templates.json",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Retrieves all template task lists on your Teamwork Account\n\nNote:\nThis is only available for API Keys associated with Administrators in the Owner Company\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all tasks on a given task list",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tasklists/:tasklist_id/tasks.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tasklists",
+								":tasklist_id",
+								"tasks.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{tasklist_id}}",
+									"id": "tasklist_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Get all tasks on a given task list\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a task",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tasklists/:tasklist_id/tasks.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tasklists",
+								":tasklist_id",
+								"tasks.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{tasklist_id}}",
+									"id": "tasklist_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "For the specified task list, creates a task.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Reorder the tasks",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tasklists/:tasklist_id/tasks/reorder.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tasklists",
+								":tasklist_id",
+								"tasks",
+								"reorder.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{tasklist_id}}",
+									"id": "tasklist_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Re-orders tasks on the specified task list. Completed tasks cannot be reordered and any tasks not specified will be sorted after the tasks explicitly specified.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tasks",
+			"description": "Folder for tasks",
+			"item": [
+				{
+					"name": "List Files on a Task",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tasks/:task_id/files.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tasks",
+								":task_id",
+								"files.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{task_id}}",
+									"id": "task_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This lets you query the list of files for a Task.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Time-Entry (for a task/todo item)",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tasks/:task_id/time_entries.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tasks",
+								":task_id",
+								"time_entries.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{task_id}}",
+									"id": "task_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "For the given task/todo item, creates a new time entry. A taskId is the same as a todo-item-id and are used interchangeably in the docs.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Task Times Totals",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tasks/:task_id/time/total.json?userId={{userId}}&fromdate={{fromdate}}&fromtime={{fromtime}}&todate={{todate}}&totime={{totime}}&projectType={{projectType}}",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tasks",
+								":task_id",
+								"time",
+								"total.json"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "fromdate",
+									"value": "{{fromdate}}"
+								},
+								{
+									"key": "fromtime",
+									"value": "{{fromtime}}"
+								},
+								{
+									"key": "todate",
+									"value": "{{todate}}"
+								},
+								{
+									"key": "totime",
+									"value": "{{totime}}"
+								},
+								{
+									"key": "projectType",
+									"value": "{{projectType}}"
+								}
+							],
+							"variable": [
+								{
+									"value": "{{task_id}}",
+									"id": "task_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Task Times Totals\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a task",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tasks/:task_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tasks",
+								":task_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{task_id}}",
+									"id": "task_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Uses the integer ID to retrieve a single task.\n\nresponsible-party-ids is only returned if the task is assigned to one or more people. If it is not returned then the task is considered assigned to Anyone\n\nprivate Private will return a 0, 1 or 2. An open task will be '0', A private task will be '1' and a task which is in a private list will be a '2' as it will inherit the privacy from the parent task list (or parent task)\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit a task",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tasks/:task_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tasks",
+								":task_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{task_id}}",
+									"id": "task_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Updates an existing task. See the list of options from \"Add a task\".\n\nYou can use this to set one or more users as Followers of a specified Task\n\nTo remove all users from following a Task, submit the same JSON as adding followers, without passing any User IDs.\n\n\n-- \n\nThere is a 'allow-update' parameter that can be used to allow the completed date of a Task to be updated on a closed task. A completer-id is optional if you want to change the person that completed the task.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Destroy a task",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tasks/:task_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tasks",
+								":task_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{task_id}}",
+									"id": "task_id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Deletes the given task.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Task Dependencies",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tasks/:task_id/dependencies.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tasks",
+								":task_id",
+								"dependencies.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{task_id}}",
+									"id": "task_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This will list any other Tasks that rely on this task to be completed first.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Mark a task complete",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tasks/:task_id/complete.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tasks",
+								":task_id",
+								"complete.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{task_id}}",
+									"id": "task_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "The specified task is marked as complete\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Mark a task uncomplete",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tasks/:task_id/uncomplete.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tasks",
+								":task_id",
+								"uncomplete.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{task_id}}",
+									"id": "task_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "The specified task is marked as un-complete (if called on an already un-complete task, has no effect).\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Task Followers",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tasks/:task_id/followers.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tasks",
+								":task_id",
+								"followers.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{task_id}}",
+									"id": "task_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "To get a list of Users that are fllowing the activity of a given Task\n\nOptionally, you can pass a returnUserInfo=true paramter to expand on the user information.\nResponse - including the ?returnUserInfo=true\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all reminders on a task",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tasks/:task_id/reminders.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tasks",
+								":task_id",
+								"reminders.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{task_id}}",
+									"id": "task_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Get all reminders on a task\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a reminder on a task",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tasks/:task_id/reminders.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tasks",
+								":task_id",
+								"reminders.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{task_id}}",
+									"id": "task_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Create a reminder on a task\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update an existing reminder on a task",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tasks/:task_id/reminders/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tasks",
+								":task_id",
+								"reminders",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{task_id}}",
+									"id": "task_id"
+								},
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Update an existing reminder on a task\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an existing reminder on a task",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/tasks/:task_id/reminders/:id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"tasks",
+								":task_id",
+								"reminders",
+								":id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{task_id}}",
+									"id": "task_id"
+								},
+								{
+									"value": "{{id}}",
+									"id": "id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Delete an existing reminder on a task\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tasks.json",
+			"description": "Folder for tasks.json",
+			"item": [
+				{
+					"name": "Retrieve all tasks on a task list, project or at top level",
+					"request": {
+						"url": "{{TeamworkHost}}/tasks.json",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Get all tasks across all projects\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "time",
+			"description": "Folder for time",
+			"item": [
+				{
+					"name": "Time Totals Across Account",
+					"request": {
+						"url": "{{TeamworkHost}}/time/total.json?userId={{userId}}&fromdate={{fromdate}}&fromtime={{fromtime}}&todate={{todate}}&totime={{totime}}&projectType={{projectType}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "You can request aggregated time totals at numerous levels\nTotal time across account: GET /time/total.json\nTotal time on a project : GET /projects/{id}/time/total.json   \nTotal time on a tasklist : GET /tasklists/{id}/time/total.json   \nTotal time on a task : GET /tasks/{id}/time/total.json   \n\nOptional Parameters\nuserId (numeric - default:0 (All Users) ) - Only show totals for userId passed\nfromDate (string - YYYYMMDD format ) - Only show totals from a specific date\ntoDate (string - YYYYMMDD format ) - Only show totals up to a specific date\nfromTime (string - HH:MM format ) - Only show totals from a specific time in conjunction with fromDate\ntoTime (string - HH:MM format ) - Only show totals up to a specific time in conjunction with toDate\nprojectType : string (all, active, archived) - Filter the time totals to those in Active projects, Archived projects or All projects.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "time_entries",
+			"description": "Folder for time_entries",
+			"item": [
+				{
+					"name": "Retrieve Single Time-Entry",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/time_entries/:time_entry_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"time_entries",
+								":time_entry_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{time_entry_id}}",
+									"id": "time_entry_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Retrieves a single time-entry.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update an Entry",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/time_entries/:time_entry_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"time_entries",
+								":time_entry_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{time_entry_id}}",
+									"id": "time_entry_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Updates the given time-entry record with the data given.\n\nOptional Parameters\nYou can also include 'project-id' in the json/xml to move this timelog to another project\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Time-Entry",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/time_entries/:time_entry_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"time_entries",
+								":time_entry_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{time_entry_id}}",
+									"id": "time_entry_id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Deletes the referenced Time-Entry\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "time_entries.json",
+			"description": "Folder for time_entries.json",
+			"item": [
+				{
+					"name": "Retrieve All Time Entries across all projects",
+					"request": {
+						"url": "{{TeamworkHost}}/time_entries.json?page={{page}}&fromdate={{fromdate}}&fromtime={{fromtime}}&todate={{todate}}&totime={{totime}}&sortby={{sortby}}&sortorder={{sortorder}}&userId={{userId}}&billableType={{billableType}}&invoicedType={{invoicedType}}&projectType={{projectType}}&showDeleted={{showDeleted}}&tagIds={{tagIds}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "To search for a resource with an attached tag of 'My Test', do the following:\n\nTo search for a Tag, you use a hash symbol and square brackets in the searchTerm, like this : #[My Test]\nThen where performing a query to the API, you need to ASCII encode the # [ ] symbols, so a GET query to the API will look like this:\n\nGET to /search.json?searchFor=messages&searchTerm=%23%5BMy+Test%5D\nIn the above example, #, [ and ] have been changed to %23, %5B and %5D respectively.\nResources that can be Searched:\nprojects\nnotebooks\nfiles\ntasks\ntasklists\nmilestones\nmessages\nlinks\nevents\npeople\ncompanies\ntaskComments\nfileComments\nnotebookComments\nmilestoneComments\nlinkComments\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "todo_items",
+			"description": "Folder for todo_items",
+			"item": [
+				{
+					"name": "Retrieve all To-do Item Times",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/todo_items/:todo_item_id/time_entries.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"todo_items",
+								":todo_item_id",
+								"time_entries.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{todo_item_id}}",
+									"id": "todo_item_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Retrieves all of the time entries from a submitted todo item.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "webhooks",
+			"description": "Folder for webhooks",
+			"item": [
+				{
+					"name": "Get a list of all Webhook Events that can be used",
+					"request": {
+						"url": "{{TeamworkHost}}/webhooks/events.json",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Get a list of all Webhook Events that can be used\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get details of a specific webhook set on your account",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/webhooks/:webhook_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"webhooks",
+								":webhook_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{webhook_id}}",
+									"id": "webhook_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Get details of a specific webhook set on your account\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a specific webhook set on your account",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/webhooks/:webhook_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"webhooks",
+								":webhook_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{webhook_id}}",
+									"id": "webhook_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Update a specific webhook set on your account\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a specific webhook on your account",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/webhooks/:webhook_id.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"webhooks",
+								":webhook_id.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{webhook_id}}",
+									"id": "webhook_id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Delete a specific webhook on your account\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Resume a specific webhook set on your account",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/webhooks/:webhook_id/resume.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"webhooks",
+								":webhook_id",
+								"resume.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{webhook_id}}",
+									"id": "webhook_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Resume a specific webhook set on your account\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Pause a specific webhook on your account",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/webhooks/:webhook_id/pause.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								"webhooks",
+								":webhook_id",
+								"pause.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{webhook_id}}",
+									"id": "webhook_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Pause a specific webhook on your account\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Enable Webhooks on your Teamwork.com Projects account",
+					"request": {
+						"url": "{{TeamworkHost}}/webhooks/enable.json",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Enable Webhooks on your Teamwork.com Projects account\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Disable Webhooks on your Teamwork.com Projects account",
+					"request": {
+						"url": "{{TeamworkHost}}/webhooks/disable.json",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Disable Webhooks on your Teamwork.com Projects account\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "webhooks.json",
+			"description": "Folder for webhooks.json",
+			"item": [
+				{
+					"name": "Get all webhooks set on your account",
+					"request": {
+						"url": "{{TeamworkHost}}/webhooks.json",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Get all webhooks set on your account\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new webhook on your account",
+					"request": {
+						"url": "{{TeamworkHost}}/webhooks.json",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Create a new webhook on your account\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "workload.json",
+			"description": "Folder for workload.json",
+			"item": [
+				{
+					"name": "Workload",
+					"request": {
+						"url": "{{TeamworkHost}}/workload.json",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "List the workload across all projects, sort by Users, Company or Project\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "{resource}",
+			"description": "Folder for {resource}",
+			"item": [
+				{
+					"name": "Retreiving Recent Comments",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/:resource/:resource_id/comments.json?page={{page}}&pageSize={{pageSize}}",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								":resource",
+								":resource_id",
+								"comments.json"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "{{page}}"
+								},
+								{
+									"key": "pageSize",
+									"value": "{{pageSize}}"
+								}
+							],
+							"variable": [
+								{
+									"value": "{{resource}}",
+									"id": "resource"
+								},
+								{
+									"value": "{{resource_id}}",
+									"id": "resource_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Retreiving Recent Comments\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Creating a Comment - Important Note",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/:resource/:resource_id/comments.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								":resource",
+								":resource_id",
+								"comments.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{resource}}",
+									"id": "resource"
+								},
+								{
+									"value": "{{resource_id}}",
+									"id": "resource_id"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Creates a new comment, associated with the particular resource. When named in the URL, it can be either posts, tasks, milestones, notebooks, links or fileversions.\n\n        Important Note : When creating a comment on a file, the {resource} is fileversions and the {resource_id} is the File Version ID   \n\n        The notify parameter is set to \"\"\"\" in the example below so no one will be notified of your new comment. This parameter can be set to all to send an email to anyone assigned to the task or following it. You can also use a list of Teamwork User IDs to only notify certain people, but you can't notify yourself.\n\n        Attaching Files : To attach new files use the pendingFileAttachments option (see the uploading files section for more info).\n\n        Content Type: By default comments are created as plain text. To create a HTML comment, pass \"\"content-type\"\":\"\"html\"\" and put your HTML formatted content in the \"\"body\"\" field.\n\n        Post as another user: You can pass \"\"author-id\"\" as a numeric userId to post the comment as another user if you are an administrator.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "List All Tags For A Resource",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/:resource/:resource_id/tags.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								":resource",
+								":resource_id",
+								"tags.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{resource}}",
+									"id": "resource"
+								},
+								{
+									"value": "{{resource_id}}",
+									"id": "resource_id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Lists all tags for a given resource\n\n        Resources\n        projects\n        tasklists\n        tasks\n        milestones\n        messages\n        timelogs\n        files\n        users\n        companys\n        notebooks\n        links\n        \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Tags On A Resource",
+					"request": {
+						"url": {
+							"raw": "{{TeamworkHost}}/:resource/:resource_id/tags.json",
+							"host": [
+								"{{TeamworkHost}}"
+							],
+							"path": [
+								":resource",
+								":resource_id",
+								"tags.json"
+							],
+							"query": [],
+							"variable": [
+								{
+									"value": "{{resource}}",
+									"id": "resource"
+								},
+								{
+									"value": "{{resource_id}}",
+									"id": "resource_id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Updates the tags for a given resource\n\n        Resources\n        projects\n        tasklists\n        tasks\n        milestones\n        messages\n        timelogs\n        files\n        users\n        companys\n        notebooks\n        links\n\n        Optional Parameters\n        replaceExistingTags (boolean - default=false) - Replace any existing tags with the tags sent in content\n        removeProvidedTags (boolean - default=false) - Don't add tags, just remove any tags sent in content\n"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
