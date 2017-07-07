@@ -1,6 +1,5 @@
-# teamwork-api-resources
-Helpful material to work with teamwork.com projects API 
+# teamwork-api-postman
 
-	- teamwork.postman_collection.json can be imported into postman. Compatible with postman v2.
+Postman collection to work with teamwork.com projects API. `teamwork.postman_collection.json` can be imported into postman. It is compatible with postman v2.
 
-For authetication, use basic authetication which will help you with usign all API end points. 
+For authetication, use basic authetication which will help you in using all API end points. 
